@@ -1,0 +1,110 @@
+* {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size:medium;
+}
+
+img {
+    max-width: 100%;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+}
+
+h1,h2,h3{
+    display:block;
+    text-transform: uppercase;
+}
+
+figcaption {
+    text-align:center;
+  }
+
+/* Header */
+
+header {
+    display:block;
+    margin:0;
+}
+
+.banner{
+    display:flex;
+    flex-wrap:wrap;
+    position:relative;
+}
+
+.logo-holder {
+    padding-top:10px;
+    padding-left:15px;
+    position:relative;
+}
+
+.text-header {
+    text-transform:uppercase;
+    text-align:right;
+    font-size:medium;
+}
+
+/* Common */
+
+.container {
+    width: 100%;
+    display:-webkit-flex;
+    display:flex;
+    flex-wrap:wrap;
+}
+.row {
+    width: 100%;
+    margin-bottom: 1px;
+}
+.col-6 {
+    width: 50%;
+}
+.col-12{
+    width:100%;
+}
+
+/* Horizontal line*/
+.hr-style {
+    display: block;
+    color: #9E9E9E;
+   }
+
+/*Second-header*/
+.align-left {
+    padding-left: 40px;
+}
+
+@media screen and (min-width:550px){
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        width:100%;
+    }
+    .pineapple-cake{
+        width:50%;
+    }
+
+    .pecan-cake{
+        width: 50%;
+        order:1;
+    }
+}
+
+@media screen and (min-width:800px){
+    .container{
+        width:800px;
+        margin-right:auto;
+        margin-left: auto;
+    }
+
+.pineapple-cake,.pecan-cake{
+    width: 33.3%;
+    }
+}
+
