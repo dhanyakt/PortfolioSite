@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>P3 Porfolio Site</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <style>
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}body{font-family:"Roboto Condensed",sans-serif;font-size:medium}img{max-width:100%;-webkit-transition:width 2s;transition:width 2s}h1,h2,h3{display:block;text-transform:uppercase}figcaption{text-align:center;width:100%}header{display:block;margin:0}.banner{display:flex;flex-wrap:wrap;position:relative}.logo-holder{padding-top:10px;padding-left:15px;position:relative}.text-header{text-transform:uppercase;text-align:right;font-size:medium}.container{width:100%;display:-webkit-flex;display:flex;flex-wrap:wrap}.row{width:100%;margin-bottom:1px}.col-6{width:50%}.col-12{width:100%}.hr-style{display:block;color:#9E9E9E}.align-left{padding-left:40px}@media screen and (min-width:550px){.row{display:flex;flex-wrap:wrap;width:100%}.social{width:50%;align-items:center}.pineapple-cake{width:50%}.pecan-cake{width:50%;order:1}}@media screen and (min-width:800px){.container{width:800px;margin-right:auto;margin-left:auto}.pineapple-cake,.pecan-cake{width:33.3%}}
+</style>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="container">
+        <header class=" row banner">
+            <div class="col-6 logo-holder">
+                <img class="logo" src="images/images_src/fixed/udacity_logo.png" alt= "Udacity logo">
+            </div>
+            <div class="col-6 text-header">
+                <h1>Dhanya T Kuttikkatt</h1>
+                <h3>Front-end-ninja</h3>
+            </div>
+        </header>
+
+        <section class="row">
+            <div class="col-12 hr-style"><hr></div>
+        </section>
+
+        <section class="row">
+            <div class="col-12">
+                <figure>
+                    <picture>
+                    <source media="(min-width:800px)" srcset="images/backround_image-large2x.jpg 2x,images/backround_image-large1x.jpg 1x" >
+                    <source media="(min-width:550px)" srcset="images/backround_image-medium.jpg">
+                    <img src="images/backround_image-small.jpg " alt="blackforest cake">
+                    </picture>
+                </figure>
+           </div>
+    </section>
+
+    <section class="row">
+        <div class="col-12 align-left">
+            <h2>Featured Work</h2>
+        </div>
+    </section>
+
+        <section class="row">
+            <article class="pineapple-cake">
+                <figure>
+                    <picture>
+                    <source media="(min-width:800px)" srcset="images/pineapple_cake-large2x.jpg 2x" >
+                    <source media="(min-width:650px)" srcset="images/pineapple_cake-medium.jpg">
+                    <img src="images/pineapple_cake-small.jpg" alt="pineapple upside down cake">
+                    </picture>
+                    <figcaption>
+                        <h3>Pineapple Cake</h3>
+                        <p><a href="">http://www.google.com</a></p>
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article class="pineapple-cake">
+                <figure>
+                    <picture>
+                    <source media="(min-width:800px)" srcset="images/pineapple_cake-large2x.jpg 2x" >
+                    <source media="(min-width:650px)" srcset="images/pineapple_cake-medium.jpg">
+                    <img src="images/pineapple_cake-small.jpg" alt="pineapple upside down cake">
+                    </picture>
+                    <figcaption>
+                        <h3>Pineapple Cake</h3>
+                        <p><a href="">http://www.google.com</a></p>
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article class="pecan-cake">
+                <figure>
+                    <picture>
+                    <source media="(min-width:800px)" srcset="images/pecan_cake-large2x.jpg 2x">
+                    <source media="(min-width:650px)" srcset="images/pecan_cake-medium.jpg ">
+                    <img src="images/pecan_cake-small.jpg" alt="pecan cake">
+                    </picture>
+                    <figcaption>
+                        <h3>Pecan Cake</h3>
+                        <p><a href="">http://www.google.com</a></p>
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
