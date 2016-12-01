@@ -5,84 +5,105 @@
   "grunt clean" removes the images directory
   "grunt responsive_images" re-processes images without removing the old ones
 */
-
 module.exports = function(grunt) {
 
-  grunt.initConfig({
-    responsive_images: {
-      dev: {
-        options: {
-          engine: 'gm',
-          sizes: [{
-                    name:"small",
-                    width:400,
-                    quality:30
+    grunt.initConfig({
+        responsive_images: {
+            dev: {
+                options: {
+                    engine: 'gm',
+                    sizes: [{
+                        name: "small",
+                        width: 400,
+                        quality: 30
+                    }, {
+                        name: "medium",
+                        width: 640,
+                        quality: 30
+                    }, {
+                        name: "large",
+                        width: 1024,
+                        suffix: "2x",
+                        quality: 30
+                    }, {
+                        name: "large",
+                        width: 1024,
+                        suffix: "1x",
+                        quality: 30
+
+                    }]
                 },
-                {
-                    name:"medium",
-                    width:640,
-                    quality:30
-                },
-                {
-                    name:"large",
-                    width: 1024,
-                    suffix:"2x",
-                    quality:30
-                },
-                {
-                  name:"large",
-                  width:1024,
-                  suffix:"1x",
-                  quality:30
 
-            }]
-          },
-
-        /*
-        You don't need to change this part if you don't change
-        the directory structure.
-        */
-        files: [{
-          expand: true,
-          src: ['*.{gif,jpg,png}'],
-          cwd: 'images_src/',
-          dest: 'images/'
-        }]
-      },
-    },
-
-    /* Clear out the images directory if it exists */
-    clean: {
-      dev: {
-        src: ['images'],
-      },
-    },
-
-    /* Generate the images directory if it is missing */
-    mkdir: {
-      dev: {
-        options: {
-          create: ['images']
+                /*
+                You don't need to change this part if you don't change
+                the directory structure.
+                */
+                files: [{
+                    expand: true,
+                    src: ['*.{gif,jpg,png}'],
+                    cwd: 'images_src/',
+                    dest: 'images/'
+                }]
+            },
         },
-      },
-    },
 
-    /* Copy the "fixed" images that don't go through processing into the images/directory */
-    copy: {
-      dev: {
-        files: [{
-          expand: true,
-          src: 'images_src/fixed/*.{gif,jpg,png}',
-          dest: 'images/'
-        }]
-      },
-    },
-  });
+        /* Clear out the images directory if it exists */
+        clean: {
+            dev: {
+                src: ['images'],
+            },
+        },
 
-  grunt.loadNpmTasks('grunt-responsive-images');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-mkdir');
-  grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images']);
+        /* Generate the images directory if it is missing */
+        mkdir: {
+            dev: {
+                options: {
+                    create: ['images']
+                },
+            },
+        },
 
+        /* Copy the "fixed" images that don't go through processing into the images/directory */
+        copy: {
+            dev: {
+                files: [{
+                    expand: true,
+                    src: 'images_src/fixed/*.{gif,jpg,png}',
+                    dest: 'images/'
+                }]
+            },
+        },
+
+        // css minification
+        cssmin: {
+            first_target: {
+                files: [{
+                    expand: true,
+                    cwd: 'css/',
+                    src: ['*.css'],
+                    dest: 'css/',
+                    ext: '.min.css'
+                }]
+            },
+        },
+
+        // Inlining
+        inline: {
+            dist: {
+                options: {
+                    cssmin: true
+                },
+                src: 'index.html',
+                dest: 'docs/index.html'
+            }
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-responsive-images');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-mkdir');
+    grunt.loadNpmTasks('grunt-inline')
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.registerTask('default', ['clean', 'mkdir', 'copy', 'responsive_images', 'cssmin', 'inline']);
 };
